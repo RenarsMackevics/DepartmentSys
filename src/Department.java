@@ -7,7 +7,7 @@ public class Department {
 
     ArrayList<Employee> employees = new ArrayList<>();
 
-    public Department(String name,) {
+    public Department(String name) {
         this.name = name;
 
     }
