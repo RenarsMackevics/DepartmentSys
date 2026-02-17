@@ -3,18 +3,13 @@ import java.util.Scanner;
 
 public class Company {
 
-
     ArrayList<Department> depts = new ArrayList<>();
 
+    Scanner sc = new Scanner(System.in);
 
-    public void AddDepartment(Department dept , Scanner sc){
 
-        System.out.println("Enter Department Name");
-        String name = sc.nextLine();
-
-        Department department = new Department(name);
-
-        depts.add(department);
+    public void AddDepartment(Department dept) {
+        depts.add(dept);
     }
 
     public void printCompanyData(){
@@ -34,6 +29,14 @@ public class Company {
 
         }
     }
+
+    public void printDepartmentData(){
+        for(int i = 0; i < depts.size(); i++){
+            Department dept = depts.get(i);
+            System.out.println( i + ") "  + "Department Name: " + dept.getName());
+        }
+    }
+
 
 
 
