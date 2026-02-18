@@ -1,52 +1,39 @@
+
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Department {
 
     private String name;
+    private String location;
+    private final ArrayList<Employee> employees = new ArrayList<>();
 
-    ArrayList<Employee> employees = new ArrayList<>();
-
-    public Department(String name) {
+    public Department(String name, String location) {
         this.name = name;
+        this.location = location;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
     }
 
     public ArrayList<Employee> getEmployees() {
         return employees;
     }
 
-
-    public void  addEmployee(Employee employee , Scanner sc) {
-
-        System.out.println("Enter Employee name: ");
-        String name = sc.nextLine();
-        sc.nextLine();
-        System.out.println("Enter Employee ID: ");
-        int id = sc.nextInt();
-
-        Employee emp = new Employee(name, id);
-
-        employees.add(emp);
-
+    public String getName() {
+        return name;
     }
 
-    public void printEmployees() {
-        for (int i = 0 ; i < employees.size(); i++) {
-            System.out.println(employees.get(i).getName() + " " + employees.get(i).getID());
-        }
+    public String getLocation() {
+        return location;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-
-
-
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }
+

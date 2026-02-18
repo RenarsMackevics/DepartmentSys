@@ -1,43 +1,49 @@
+// Company.java
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Company {
 
-    ArrayList<Department> depts = new ArrayList<>();
+    private final ArrayList<Department> depts = new ArrayList<>();
 
-    Scanner sc = new Scanner(System.in);
-
-
-    public void AddDepartment(Department dept) {
+    public void addDepartment(Department dept) {
         depts.add(dept);
     }
 
-    public void printCompanyData(){
-        for(int i = 0; i < depts.size(); i++){
-            Department dept = depts.get(i);
+    public Department getDepartment(int index) {
+        if (index < 0 || index >= depts.size()) return null;
+        return depts.get(index);
+    }
 
-            System.out.println("Department Name: " + dept.getName());
+    public void printDepartmentList() {
+        for (int i = 0; i < depts.size(); i++) {
+            Department d = depts.get(i);
+            System.out.println(i + ") " + d.getName() + " (" + d.getLocation() + ")");
+        }
+        if (depts.size() == 0) {
+            System.out.println("(no departments yet)");
+        }
+    }
+
+    public void printCompanyData() {
+        if (depts.size() == 0) {
+            System.out.println("(no departments yet)\n");
+            return;
+        }
+
+        for (int i = 0; i < depts.size(); i++) {
+            Department dept = depts.get(i);
+            System.out.println("Department #" + i + ": " + dept.getName() + " (" + dept.getLocation() + ")");
 
             ArrayList<Employee> employees = dept.getEmployees();
-
-            for (int j = 0; j < employees.size(); j++){
-                Employee employee = employees.get(j);
-
-                System.out.println("Employee Name: " + employee.getName()  + " | " + employees.get(j).getID());
+            if (employees.size() == 0) {
+                System.out.println("  (no employees)");
+            } else {
+                for (int j = 0; j < employees.size(); j++) {
+                    Employee e = employees.get(j);
+                    System.out.println("  - Name: " + e.getName() + " | ID: " + e.getID());
+                }
             }
             System.out.println();
-
         }
     }
-
-    public void printDepartmentData(){
-        for(int i = 0; i < depts.size(); i++){
-            Department dept = depts.get(i);
-            System.out.println( i + ") "  + "Department Name: " + dept.getName());
-        }
-    }
-
-
-
-
 }

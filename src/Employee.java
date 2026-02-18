@@ -1,3 +1,4 @@
+
 public class Employee {
 
     private String name;
@@ -8,22 +9,19 @@ public class Employee {
         this.ID = ID;
     }
 
-    // getters and setters
     public String getName() {
         return name;
     }
+
     public int getID() {
         return ID;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public void setID(int ID) {
         this.ID = ID;
-
     }
-
-
-
-
 }
